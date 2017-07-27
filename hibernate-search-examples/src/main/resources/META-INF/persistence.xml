@@ -1,0 +1,32 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="org.hibernate.tutorial.jpa">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+        <validation-mode>NONE</validation-mode>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/h_search_demo?useUnicode=true&amp;characterEncoding=utf-8" />
+            <property name="javax.persistence.jdbc.user" value="h_search" />
+            <property name="javax.persistence.jdbc.password" value="123456" />
+
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
+            <property name="hibernate.search.default.directory_provider"
+                      value="filesystem"/>
+
+            <!-- C:\chaokunyang\Devlopment\DevEnvironment\apache-tomcat-8.0.22-windows-x64\apache-tomcat-8.0.22\bin\lucene\indexes -->
+            <property name="hibernate.search.default.indexBase"
+                      value="../lucene/indexes"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
