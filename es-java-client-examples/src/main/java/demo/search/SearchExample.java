@@ -21,7 +21,7 @@ public class SearchExample {
     private static void search(Client client) {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.YEAR, -10);
-        SearchResponse response = client.prepareSearch("twitter", "twitter2")
+        SearchResponse response = client.prepareSearch("twitter")
                 .setTypes("tweet", "tweet")
                 .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
                 .setQuery(QueryBuilders.termQuery("user", "kimchy")) // Query
@@ -30,6 +30,10 @@ public class SearchExample {
                 .get();
 
         System.out.println(response);
+
+        System.out.println(response.getHits());
+
+
     }
 
 }
